@@ -7,8 +7,9 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [features]
-default = ["plain"]
+default = []
 bnum = ["dep:bnum"]
+crypto = ["dep:crypto-bigint"]
 plain = []
 fixed = ["dep:fixed-bigint"]
 
@@ -16,6 +17,6 @@ fixed = ["dep:fixed-bigint"]
 panic = "abort"
 
 [dependencies]
-crypto-bigint = { version = "0.6.1", default-features = false }
+crypto-bigint = { version = "0.6.1", default-features = false, optional = true }
 bnum = { version = "0.13.0", default-features = false, optional = true }
 fixed-bigint = { version = "0.1.17", default-features = false, optional = true }
