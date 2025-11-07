@@ -25,6 +25,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "fixed-bigint"
+version = "0.1.17"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fee0701cee3dc4d6b6b2913877c6488f7684753700c99dd40d0736c6467df8d2"
+dependencies = [
+ "num-integer",
+ "num-traits",
+]
+
+[[package]]
+name = "num-integer"
+version = "0.1.46"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7969661fd2958a5cb096e56c8e1ad0444ac2bbcd0061bd28660485a44879858f"
+dependencies = [
+ "num-traits",
+]
+
+[[package]]
 name = "num-traits"
 version = "0.2.19"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -39,6 +58,7 @@ version = "0.1.0"
 dependencies = [
  "bnum",
  "crypto-bigint",
+ "fixed-bigint",
 ]
 
 [[package]]
