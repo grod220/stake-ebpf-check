@@ -15,6 +15,10 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "119771309b95163ec7aaf79810da82f7cd0599c19722d48b9c03894dca833966"
 
 [[package]]
+name = "bpf-math"
+version = "0.1.0"
+
+[[package]]
 name = "byteorder"
 version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -75,6 +79,7 @@ name = "stake-ebpf-check"
 version = "0.1.0"
 dependencies = [
  "bnum",
+ "bpf-math",
  "crypto-bigint",
  "fixed-bigint",
  "uint",

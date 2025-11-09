@@ -99,6 +99,9 @@ pub extern "C" fn entrypoint(arg: u64) -> u64 {
     #[cfg(feature = "manual")]
     type Calculator = implementations::manual::ManualCalculator;
 
+    #[cfg(feature = "streaming")]
+    type Calculator = implementations::ebpf_streaming::EbpfStreamingCalculator;
+
     let activation =
         calculate_activation_allowance::<Calculator>(arg, account_stake, &cluster_state, Some(arg / 3));
     let deactivation = calculate_deactivation_allowance::<Calculator>(
