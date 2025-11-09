@@ -1,5 +1,6 @@
 #![no_std]
 use core::{cmp::max, panic::PanicInfo};
+use core::hint::black_box;
 
 pub type Epoch = u64;
 
@@ -42,13 +43,13 @@ pub fn calculate_activation_allowance<T: StakeCalculator>(
     prev_epoch_cluster_state: &StakeHistoryEntry,
     new_rate_activation_epoch: Option<Epoch>,
 ) -> u64 {
-    T::rate_limited_stake_change(
+    black_box(T::rate_limited_stake_change(
         current_epoch,
         account_activating_stake,
         prev_epoch_cluster_state.activating,
         prev_epoch_cluster_state.effective,
         new_rate_activation_epoch,
-    )
+    ))
 }
 
 pub fn calculate_deactivation_allowance<T: StakeCalculator>(
@@ -57,13 +58,13 @@ pub fn calculate_deactivation_allowance<T: StakeCalculator>(
     prev_epoch_cluster_state: &StakeHistoryEntry,
     new_rate_activation_epoch: Option<Epoch>,
 ) -> u64 {
-    T::rate_limited_stake_change(
+    black_box(T::rate_limited_stake_change(
         current_epoch,
         account_deactivating_stake,
         prev_epoch_cluster_state.deactivating,
         prev_epoch_cluster_state.effective,
         new_rate_activation_epoch,
-    )
+    ))
 }
 
 mod implementations;
@@ -91,6 +92,9 @@ pub extern "C" fn entrypoint(arg: u64) -> u64 {
     
     #[cfg(feature = "plain")]
     type Calculator = implementations::plain::PlainCalculator;
+
+    #[cfg(feature = "manual")]
+    type Calculator = implementations::manual::ManualCalculator;
 
     let activation =
         calculate_activation_allowance::<Calculator>(arg, account_stake, &cluster_state, Some(arg / 3));

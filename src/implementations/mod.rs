@@ -9,3 +9,6 @@ pub mod fixed;
 
 #[cfg(feature = "plain")]
 pub mod plain;
+
+#[cfg(feature = "manual")]
+pub mod manual;
