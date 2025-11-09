@@ -7,6 +7,9 @@ pub mod crypto;
 #[cfg(feature = "fixed")]
 pub mod fixed;
 
+#[cfg(feature = "uint")]
+pub mod uint_impl;
+
 #[cfg(feature = "plain")]
 pub mod plain;
 

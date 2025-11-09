@@ -89,6 +89,9 @@ pub extern "C" fn entrypoint(arg: u64) -> u64 {
     
     #[cfg(feature = "fixed")]
     type Calculator = implementations::fixed::FixedCalculator;
+
+    #[cfg(feature = "uint")]
+    type Calculator = implementations::uint_impl::UintCalculator;
     
     #[cfg(feature = "plain")]
     type Calculator = implementations::plain::PlainCalculator;
