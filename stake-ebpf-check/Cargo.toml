@@ -14,11 +14,9 @@ plain = []
 manual = []
 fixed = ["dep:fixed-bigint"]
 uint = ["dep:uint"]
-streaming = ["dep:bpf-math"]
 
 [dependencies]
 crypto-bigint = { version = "0.6.1", default-features = false, optional = true }
 bnum = { version = "0.13.0", default-features = false, optional = true }
 fixed-bigint = { version = "0.1.17", default-features = false, optional = true }
 uint = { version = "0.10", default-features = false, optional = true }
-bpf-math = { path = "../bpf-math", optional = true }

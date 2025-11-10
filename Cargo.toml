@@ -1,7 +1,6 @@
 [workspace]
 members = [
     "stake-ebpf-check",
-    "bpf-math",
 ]
 resolver = "2"
 
