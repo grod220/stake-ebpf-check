@@ -15,6 +15,3 @@ pub mod plain;
 
 #[cfg(feature = "manual")]
 pub mod manual;
-
-#[cfg(feature = "streaming")]
-pub mod ebpf_streaming;

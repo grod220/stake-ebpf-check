@@ -1,5 +1,5 @@
 use crate::{StakeCalculator, warmup_cooldown_rate_bps, Epoch, BASIS_POINTS_PER_UNIT};
-use bnum::BUintD16;
+use bnum::{BUintD16, BUintD32};
 use core::alloc::{GlobalAlloc, Layout};
 
 struct NoAlloc;
@@ -10,7 +10,7 @@ unsafe impl GlobalAlloc for NoAlloc {
 #[global_allocator]
 static GLOBAL: NoAlloc = NoAlloc;
 
-type U = BUintD16<16>;
+type U = BUintD64<2>;
 
 pub struct BnumCalculator;
 
